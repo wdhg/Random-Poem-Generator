@@ -13,7 +13,7 @@ def get_words(word_type):
 def make_poem(structure, nouns, verbs, adverbs, adjectives):
     poem = ""
     structure = structure.split()
-    eol = False
+    eol = False # End of line
     for word in structure:            
         if word == "/noun":
             poem += choice(nouns)
