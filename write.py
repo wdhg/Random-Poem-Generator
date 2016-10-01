@@ -1,7 +1,7 @@
 from random import choice
 
 # /<word-type> will put a word of that type in the position
-structure = """The /noun /adverb /verb /eol """ * 4
+structure = """When the /noun /adverb /verb /eol The /noun /adverb /verb /eol I wish the /adjective /noun /verb"""
 TYPES = ["/noun", "/adverb", "/verb"]
 
 def get_words(word_type):
@@ -18,7 +18,12 @@ def make_poem(structure, nouns, verbs, adverbs, adjectives):
         if word == "/noun":
             poem += choice(nouns)
         elif word == "/verb":
-            poem += choice(verbs) + "ed"
+            poem_word = choice(verbs)
+            if poem_word[-1] == "e": # last letter is e
+                extension = "d"
+            else:
+                extension = "ed"
+            poem += poem_word + extension
         elif word == "/adverb":
             poem += choice(adverbs)
         elif word == "/adjective":
