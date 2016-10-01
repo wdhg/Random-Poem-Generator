@@ -1,5 +1,6 @@
 from random import choice
 
+# /<word-type> will put a word of that type in the position
 structure = """The /noun /adverb /verb /eol """ * 4
 TYPES = ["/noun", "/adverb", "/verb"]
 
