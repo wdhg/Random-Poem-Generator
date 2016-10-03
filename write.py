@@ -10,9 +10,9 @@ def get_structure():
     return structure.split()
 
 def get_words(word_type):
-    with open(word_type + ".txt", "r") as f:
-        text = f.read()
-        f.close()
+    with open(word_type + ".txt", "r") as file:
+        text = file.read()
+        file.close()
     return text.split("\n")
 
 def make_poem(structure, nouns, verbs, adverbs, adjectives):
