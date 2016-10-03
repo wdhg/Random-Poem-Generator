@@ -1,8 +1,13 @@
 from random import choice
 
 # /<word-type> will put a word of that type in the position
-structure = """When the /noun /adverb /verb /eol The /noun /adverb /verb /eol I wish the /adjective /noun /verb"""
 TYPES = ["/noun", "/adverb", "/verb"]
+
+def get_structure():
+    with open("structure.txt", "r") as file:
+        structure = file.read()
+        file.close()
+    return structure.split()
 
 def get_words(word_type):
     with open(word_type + ".txt", "r") as f:
@@ -12,7 +17,6 @@ def get_words(word_type):
 
 def make_poem(structure, nouns, verbs, adverbs, adjectives):
     poem = ""
-    structure = structure.split()
     eol = False # End of line
     for word in structure:            
         if word == "/noun":
@@ -38,6 +42,7 @@ def make_poem(structure, nouns, verbs, adverbs, adjectives):
     return poem
     
 def main():
+    structure = get_structure()
     nouns = get_words("nouns")
     verbs = get_words("verbs")
     adverbs = get_words("adverbs")
