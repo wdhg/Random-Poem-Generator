@@ -6,13 +6,11 @@ TYPES = ["/noun", "/adverb", "/verb"]
 def get_structure():
     with open("structure.txt", "r") as file:
         structure = file.read()
-        file.close()
     return structure.split()
 
 def get_words(word_type):
     with open(word_type + ".txt", "r") as file:
         text = file.read()
-        file.close()
     return text.split("\n")
 
 def make_poem(structure, nouns, verbs, adverbs, adjectives):
