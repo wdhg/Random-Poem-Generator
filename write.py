@@ -1,7 +1,7 @@
 from random import choice
 
 # /<word-type> will put a word of that type in the position
-TYPES = ["/noun", "/adverb", "/verb"]
+TYPES = ["/noun", "/verb", "/adverb", "/adjective", "/eol"]
 
 def get_structure():
     with open("structure.txt", "r") as file:
@@ -17,25 +17,25 @@ def make_poem(structure, nouns, verbs, adverbs, adjectives):
     poem = ""
     eol = False # End of line
     for word in structure:            
-        if word == "/noun":
+        if word == TYPES[0]: # Noun
             poem += choice(nouns)
-        elif word == "/verb":
+        elif word == TYPES[1]: # Verb
             poem_word = choice(verbs)
             if poem_word[-1] == "e": # last letter is e
                 extension = "d"
             else:
                 extension = "ed"
             poem += poem_word + extension
-        elif word == "/adverb":
+        elif word == TYPES[2]: # Adverb
             poem += choice(adverbs)
-        elif word == "/adjective":
+        elif word == TYPES[3] # Adjective:
             poem += choice(adjectives)
-        elif word == "/eol":
+        elif word == TYPES[4]: # End of line
             poem += "\n"
         else:
             poem += word
             
-        if word != "/eol":
+        if word != TYPES[4] # Eol:
             poem += " "
     return poem
     
