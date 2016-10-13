@@ -35,7 +35,7 @@ def make_poem(structure, nouns, verbs, adverbs, adjectives):
         else:
             poem += word
             
-        if word != TYPES[4] # Eol:
+        if word != TYPES[4]: # Eol
             poem += " "
     return poem
     
