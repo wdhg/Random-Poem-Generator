@@ -28,7 +28,7 @@ def make_poem(structure, nouns, verbs, adverbs, adjectives):
             poem += poem_word + extension
         elif word == TYPES[2]: # Adverb
             poem += choice(adverbs)
-        elif word == TYPES[3] # Adjective:
+        elif word == TYPES[3]: # Adjective
             poem += choice(adjectives)
         elif word == TYPES[4]: # End of line
             poem += "\n"
